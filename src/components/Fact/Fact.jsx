@@ -13,8 +13,12 @@ class Fact extends Component {
   }
 
   async componentDidMount() {
-    const posts = await r.getSubreddit('todayilearned').getHot({ limit: 5 });
-    const post = posts[Math.floor(Math.random() * Math.max(4))];
+    const limit = 5;
+    const maxNum = limit - 1;
+    const subReddit = 'todayilearned';
+
+    const posts = await r.getSubreddit(subReddit).getHot({ limit: limit });
+    const post = posts[Math.floor(Math.random() * Math.max(maxNum))];
     this.setState({
       post,
       isLoaded: true
@@ -22,17 +26,46 @@ class Fact extends Component {
   }
 
   async randomFact() {
-    const binaryNum = Math.floor(Math.random() * Math.max(2));
+    const limit = 10;
+    const maxNum = limit - 1;
+    const subReddit = 'todayilearned';
+
+    let num = Math.floor(Math.random() * Math.max(3));
 
     let post, posts;
-    switch (binaryNum) {
+    switch (num) {
       case 0:
-        posts = await r.getSubreddit('todayilearned').getHot({ limit: 10 });
-        post = posts[Math.floor(Math.random() * Math.max(9))];
+        posts = await r.getSubreddit(subReddit).getHot({ limit: limit });
+        post = posts[Math.floor(Math.random() * Math.max(maxNum))];
         break;
       case 1:
-        posts = await r.getSubreddit('todayilearned').getNew({ limit: 10 });
-        post = posts[Math.floor(Math.random() * Math.max(9))];
+        posts = await r.getSubreddit(subReddit).getNew({ limit: limit });
+        post = posts[Math.floor(Math.random() * Math.max(maxNum))];
+        break;
+      case 2:
+        num = Math.floor(Math.random() * Math.max(3));
+        switch (num) {
+          case 1:
+            posts = await r
+              .getSubreddit(subReddit)
+              .getTop({ limit: limit, time: 'all' });
+            post = posts[Math.floor(Math.random() * Math.max(maxNum))];
+            break;
+          case 2:
+            posts = await r
+              .getSubreddit(subReddit)
+              .getTop({ limit: limit, time: 'year' });
+            post = posts[Math.floor(Math.random() * Math.max(maxNum))];
+            break;
+          case 3:
+            posts = await r
+              .getSubreddit(subReddit)
+              .getTop({ limit: limit, time: 'month' });
+            post = posts[Math.floor(Math.random() * Math.max(maxNum))];
+            break;
+          default:
+            return;
+        }
         break;
       default:
         return;
@@ -46,12 +79,18 @@ class Fact extends Component {
 
   render() {
     const { post, isLoaded } = this.state;
+
     if (!isLoaded) {
       return <div>Loading</div>;
     } else {
       return (
         <div>
-          <h2>{post.title}</h2>
+          <h2>
+            {post.title
+              .split('TIL')[1]
+              .charAt(1)
+              .toUpperCase() + post.title.split('TIL')[1].slice(2)}
+          </h2>
           <button onClick={this.randomFact}>Click me for random fact</button>
         </div>
       );
