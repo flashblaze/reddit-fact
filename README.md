@@ -2,7 +2,7 @@
 
 A simple React app which displays a random fact from Reddit using their API.
 
-:tada: Site live [here](https://reddit-fact.netlify.com) :tada:
+:tada: Site is live [here](https://reddit-fact.netlify.com) :tada:
 
 ## How to use
 
