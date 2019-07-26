@@ -2,6 +2,8 @@
 
 A simple React app which displays a random fact from Reddit using their API.
 
+:tada: Site live [here](https://reddit-fact.netlify.com) :tada:
+
 ## How to use
 
 1. Create and register your **script** app [here](https://www.reddit.com/prefs/apps)
@@ -39,8 +41,9 @@ A simple React app which displays a random fact from Reddit using their API.
 
    For more info, you can refer [this](https://github.com/not-an-aardvark/snoowrap#examples)
 
-## Technologies used:
+## Made using:
 
 - [react](https://github.com/facebook/react)
 - [snoowrap](https://github.com/not-an-aardvark/snoowrap)
 - [tailwindcss](https://github.com/tailwindcss/tailwindcss)
+- [feather](https://github.com/feathericons/feather)

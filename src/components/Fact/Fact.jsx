@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Info from '../Info/Info';
+
 import r from '../../config/data';
 
 class Fact extends Component {
@@ -15,7 +17,7 @@ class Fact extends Component {
 
   async componentDidMount() {
     let limit;
-    limit = 100;
+    limit = 10;
     const subReddit = 'facts';
 
     let posts = [];
@@ -89,26 +91,33 @@ class Fact extends Component {
 
     if (!isLoaded) {
       return (
-        <div className="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-lg my-48">
-          <div className="mx-auto pt-1">
-            <h4 className="text-xl text-gray-900 leading-tight">Loading</h4>
+        <div>
+          <div className="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-lg mt-48 mb-16">
+            <div className="mx-auto pt-1">
+              <h4 className="text-xl text-gray-900 leading-tight">Loading</h4>
+            </div>
           </div>
+          <Info />
         </div>
       );
     } else {
       return (
-        <div className="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-lg my-48">
-          <div className="ml-6 pt-1">
-            <h4 className="text-xl text-gray-900 leading-tight">
-              {post.title}
-            </h4>
-            <button
-              className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mt-8"
-              onClick={this.randomFact}
-            >
-              Random Fact
-            </button>
+        <div>
+          <div className="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-lg mt-48 mb-16">
+            <div className="ml-6 pt-1">
+              <h4 className="text-xl text-gray-900 leading-tight">
+                {post.title}
+              </h4>
+              <button
+                style={{ backgroundColor: '#0076FF' }}
+                className="hover:shadow-lg text-white font-medium py-2 px-4 border border-gray-400 rounded-lg shadow mt-8"
+                onClick={this.randomFact}
+              >
+                Random Fact
+              </button>
+            </div>
           </div>
+          <Info />
         </div>
       );
     }
