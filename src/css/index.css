@@ -574,6 +574,10 @@ video {
   height: auto;
 }
 
+body {
+  background-color: rgb(238, 238, 238);
+}
+
 .container {
   width: 100%;
 }

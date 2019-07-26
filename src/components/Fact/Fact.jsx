@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import r from '../../config/data';
 
-class Home extends Component {
+class Fact extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -112,4 +112,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Fact;

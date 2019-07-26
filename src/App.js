@@ -1,12 +1,12 @@
 import React from 'react';
-import Home from './components/Home/Home';
+import Fact from './components/Fact/Fact';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Home />
+      <Fact />
     </div>
   );
-}
+};
 
 export default App;
