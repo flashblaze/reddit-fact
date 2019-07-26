@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
+import Draggable from 'react-draggable';
 
 import Info from '../Info/Info';
 
@@ -92,9 +94,14 @@ class Fact extends Component {
     if (!isLoaded) {
       return (
         <div>
-          <div className="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-lg mt-48 mb-16">
+          <div className="max-w-sm mx-auto flex p-4 bg-white rounded-lg shadow-lg mt-48 mb-16">
             <div className="mx-auto pt-1">
-              <h4 className="text-xl text-gray-900 leading-tight">Loading</h4>
+              <ClipLoader
+                sizeUnit={'px'}
+                size={30}
+                color={'#0076FF'}
+                loading={!this.state.isLoaded}
+              />
             </div>
           </div>
           <Info />
@@ -103,20 +110,27 @@ class Fact extends Component {
     } else {
       return (
         <div>
-          <div className="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-lg mt-48 mb-16">
-            <div className="ml-6 pt-1">
-              <h4 className="text-xl text-gray-900 leading-tight">
-                {post.title}
-              </h4>
-              <button
-                style={{ backgroundColor: '#0076FF' }}
-                className="hover:shadow-lg text-white font-medium py-2 px-4 border border-gray-400 rounded-lg shadow mt-8"
-                onClick={this.randomFact}
-              >
-                Random Fact
-              </button>
+          <Draggable>
+            <div className="max-w-sm mx-auto flex p-4 bg-white rounded-lg shadow-lg mt-48 mb-16">
+              <div className="ml-6 pt-1">
+                <h4 className="text-xl text-gray-900 leading-tight">
+                  {post.title}
+                </h4>
+                <button
+                  style={{ backgroundColor: '#0076FF' }}
+                  className="hover:shadow-lg text-white font-medium py-2 px-4 border border-gray-400 rounded-lg shadow mt-8"
+                  onClick={this.randomFact}
+                >
+                  Random Fact
+                </button>
+                <button className="bg-transparent hover:bg-blue-100 hover:border-transparent hover:shadow-lg text-blue-600 font-medium py-2 px-4 border border-blue-400 rounded-lg shadow mt-8 ml-6">
+                  <a href={post.url} target="blank">
+                    View Submission
+                  </a>
+                </button>
+              </div>
             </div>
-          </div>
+          </Draggable>
           <Info />
         </div>
       );

@@ -1,5 +1,15 @@
 # reddit-fact
 
+<p align="center">
+  <a href="https://github.com/FlashBlaze/reddit-fact/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="@FlashBlaze/reddit-fact is released under the MIT license." />
+  </a>
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
+  <a href="https://app.netlify.com/sites/reddit-fact/deploys">
+      <img src="https://api.netlify.com/api/v1/badges/adbfab56-08f1-43ee-b97d-25b17ea64c49/deploy-status" alt="Netlify Status" />
+    </a>
+</p>
+
 A simple React app which displays a random fact from Reddit using their API.
 
 :tada: Site is live [here](https://reddit-fact.netlify.com) :tada:
@@ -41,9 +51,6 @@ A simple React app which displays a random fact from Reddit using their API.
 
    For more info, you can refer [this](https://github.com/not-an-aardvark/snoowrap#examples)
 
-## Made using:
+_Note: Removed made using since it was getting too big_ :sweat_smile:
 
-- [react](https://github.com/facebook/react)
-- [snoowrap](https://github.com/not-an-aardvark/snoowrap)
-- [tailwindcss](https://github.com/tailwindcss/tailwindcss)
-- [feather](https://github.com/feathericons/feather)
+Note will be removed in next commit and resources will be added soon
