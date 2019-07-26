@@ -14,12 +14,14 @@ class Fact extends Component {
   }
 
   async componentDidMount() {
-    const limit = 10;
-    const maxNum = limit - 1;
+    let limit;
+    limit = 100;
     const subReddit = 'facts';
 
-    const posts = await r.getSubreddit(subReddit).getHot({ limit: limit });
-    const post = posts[Math.floor(Math.random() * Math.max(maxNum))];
+    let posts = [];
+    let post;
+    posts = await r.getSubreddit(subReddit).getHot({ limit: limit });
+    post = posts[Math.floor(Math.random() * limit - 1) + 1];
     this.setState({
       post,
       isLoaded: true
@@ -30,42 +32,43 @@ class Fact extends Component {
     this.setState({
       isLoaded: false
     });
-    const limit = 10;
-    const maxNum = limit - 1;
+    let limit, num;
+    limit = 100;
     const subReddit = 'facts';
 
-    let num = Math.floor(Math.random() * Math.max(3));
+    num = Math.floor(Math.random() * 3) + 1;
 
     let post, posts;
     switch (num) {
-      case 0:
-        posts = await r.getSubreddit(subReddit).getHot({ limit: limit });
-        post = posts[Math.floor(Math.random() * Math.max(maxNum))];
-        break;
       case 1:
-        posts = await r.getSubreddit(subReddit).getNew({ limit: limit });
-        post = posts[Math.floor(Math.random() * Math.max(maxNum))];
+        posts = await r.getSubreddit(subReddit).getHot({ limit: limit });
+        post = posts[Math.floor(Math.random() * limit - 1) + 1];
         break;
       case 2:
-        num = Math.floor(Math.random() * Math.max(3));
+        posts = await r.getSubreddit(subReddit).getNew({ limit: limit });
+        post = posts[Math.floor(Math.random() * limit - 1) + 1];
+        break;
+      case 3:
+        num = Math.floor(Math.random() * 3) + 1;
+
         switch (num) {
-          case 0:
-            posts = await r
-              .getSubreddit(subReddit)
-              .getTop({ limit: limit, time: 'all' });
-            post = posts[Math.floor(Math.random() * Math.max(maxNum))];
-            break;
           case 1:
             posts = await r
               .getSubreddit(subReddit)
-              .getTop({ limit: limit, time: 'year' });
-            post = posts[Math.floor(Math.random() * Math.max(maxNum))];
+              .getTop({ limit: limit, time: 'all' });
+            post = posts[Math.floor(Math.random() * limit - 1) + 1];
             break;
           case 2:
             posts = await r
               .getSubreddit(subReddit)
+              .getTop({ limit: limit, time: 'year' });
+            post = posts[Math.floor(Math.random() * limit - 1) + 1];
+            break;
+          case 3:
+            posts = await r
+              .getSubreddit(subReddit)
               .getTop({ limit: limit, time: 'month' });
-            post = posts[Math.floor(Math.random() * Math.max(maxNum))];
+            post = posts[Math.floor(Math.random() * limit - 1) + 1];
             break;
           default:
             return;
