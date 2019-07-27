@@ -3,6 +3,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import Draggable from 'react-draggable';
 
 import Info from '../Info/Info';
+import ProTip from '../ProTip/ProTip';
 
 import r from '../../config/data';
 
@@ -81,16 +82,19 @@ const Fact = () => {
   if (!isLoaded) {
     return (
       <div>
-        <div className="max-w-sm mx-auto flex p-4 bg-white rounded-lg shadow-lg mt-48 mb-16">
-          <div className="mx-auto pt-1">
-            <ClipLoader
-              sizeUnit={'px'}
-              size={30}
-              color={'#0076FF'}
-              loading={!isLoaded}
-            />
+        <Draggable>
+          <div className="max-w-sm mx-auto flex p-4 bg-white rounded-lg shadow-lg mt-48 mb-16">
+            <div className="mx-auto pt-1">
+              <ClipLoader
+                sizeUnit={'px'}
+                size={30}
+                color={'#0076FF'}
+                loading={!isLoaded}
+              />
+            </div>
           </div>
-        </div>
+        </Draggable>
+        <ProTip />
         <Info />
       </div>
     );
@@ -118,6 +122,7 @@ const Fact = () => {
             </div>
           </div>
         </Draggable>
+        <ProTip />
         <Info />
       </div>
     );

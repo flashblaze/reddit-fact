@@ -8,6 +8,7 @@
     "react-draggable": "^3.3.0",
     "react-scripts": "3.0.1",
     "react-spinners": "^0.5.13",
+    "react-spring": "^8.0.27",
     "snoowrap": "^1.18.0",
     "tailwindcss": "^1.0.5"
   },

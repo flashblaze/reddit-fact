@@ -6,7 +6,7 @@ import { ReactComponent as Heart } from '../../svg/heart.svg';
 const Info = () => {
   return (
     <div>
-      <div className="max-w-sm mx-auto ">
+      <div className="max-w-sm mx-auto mt-8">
         <h3 className="text-2xl text-gray-900 text-center">
           You can view the code here{' '}
           <a href="https://github.com/FlashBlaze/reddit-fact" target="blank">
@@ -18,7 +18,7 @@ const Info = () => {
           </a>
         </h3>
       </div>
-      <div className="max-w-sm mx-auto mt-8">
+      <div className="max-w-sm mx-auto mt-6">
         <h6 className="text-md text-gray-900 text-center">
           Made with{' '}
           <Heart

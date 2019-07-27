@@ -50,7 +50,3 @@ A simple React app which displays a random fact from Reddit using their API.
    ```
 
    For more info, you can refer [this](https://github.com/not-an-aardvark/snoowrap#examples)
-
-_Note: Removed made using since it was getting too big_ :sweat_smile:
-
-Note will be removed in next commit and resources will be added soon
