@@ -4,6 +4,7 @@ import Draggable from 'react-draggable';
 
 import Info from '../Info/Info';
 import ProTip from '../ProTip/ProTip';
+import InputSub from '../InputSub/InputSub';
 
 import r from '../../config/data';
 
@@ -101,8 +102,9 @@ const Fact = () => {
   } else {
     return (
       <div>
+        <InputSub />
         <Draggable>
-          <div className="max-w-sm mx-auto flex p-4 bg-white rounded-lg shadow-lg mt-48 mb-16">
+          <div className="max-w-sm mx-auto flex p-4 bg-white rounded-lg shadow-lg mt-8 mb-16">
             <div className="ml-6 pt-1">
               <h4 className="text-xl text-gray-900 leading-tight">
                 {post.title}
