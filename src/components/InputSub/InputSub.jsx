@@ -1,39 +1,31 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-class InputSub extends Component {
-  state = {
-    subreddit: ''
-  };
+import { setSub } from '../../actions/index';
 
-  onChange = e => {
-    this.setState({
-      subreddit: e.target.value
-    });
-  };
+const InputSub = () => {
+  const [subreddit, setSubreddit] = useState('');
+  const dispatch = useDispatch();
 
-  onSubmit = e => {
+  const onSubmit = e => {
     e.preventDefault();
-    console.log(this.state.subreddit);
-    this.setState({
-      subreddit: ''
-    });
+    setSubreddit('');
+    dispatch(setSub(subreddit));
   };
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <input
-            className="bg-white focus:outline-none border focus:shadow-md border-gray-300 rounded-lg py-2 px-4 block max-w-md appearance-none leading-normal mx-auto mt-24"
-            type="text"
-            placeholder="Enter subreddit"
-            value={this.state.subreddit}
-            onChange={this.onChange}
-          />
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <form onSubmit={onSubmit}>
+        <input
+          className="bg-white focus:outline-none border focus:shadow-md border-gray-300 rounded-lg py-2 px-4 block max-w-md appearance-none leading-normal mx-auto mt-24"
+          type="text"
+          placeholder="Enter subreddit"
+          value={subreddit}
+          onChange={e => setSubreddit(e.target.value)}
+        />
+      </form>
+    </div>
+  );
+};
 
 export default InputSub;

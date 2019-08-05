@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 import Draggable from 'react-draggable';
+import { useSelector } from 'react-redux';
 
 import Info from '../Info/Info';
 import ProTip from '../ProTip/ProTip';
@@ -11,12 +12,13 @@ import r from '../../config/data';
 const Fact = () => {
   const [post, setPost] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
+  const customSub = useSelector(state => state.subReddit);
+  let subReddit = 'facts';
 
   useEffect(() => {
     async function fetchPost() {
       let limit;
       limit = 20;
-      const subReddit = 'facts';
 
       let posts = [];
       let post;
@@ -26,13 +28,13 @@ const Fact = () => {
       setIsLoaded(true);
     }
     fetchPost();
-  }, []);
+  }, [subReddit]);
 
   async function randomFact() {
     setIsLoaded(false);
     let limit, num;
     limit = 100;
-    const subReddit = 'facts';
+    subReddit = customSub.state;
 
     num = Math.floor(Math.random() * 3) + 1;
 
