@@ -1,5 +1,5 @@
 import React from 'react';
-import Fact from './components/Fact/Fact';
+import Fact from './components/Fact';
 
 const App = () => {
   return (

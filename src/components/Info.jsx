@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ReactComponent as GitHub } from '../../svg/github.svg';
-import { ReactComponent as Heart } from '../../svg/heart.svg';
+import { ReactComponent as GitHub } from '../svg/github.svg';
+import { ReactComponent as Heart } from '../svg/heart.svg';
 
 const Info = () => {
   return (

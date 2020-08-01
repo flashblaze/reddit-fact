@@ -1,8 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
+import snoowrap from 'snoowrap';
+import keys from '../config/keys';
 
-import Info from '../Info/Info';
-import r from '../../config/data';
+import Info from './Info';
+
+const r = new snoowrap({
+  clientId:
+    process.env.NODE_ENV === 'development'
+      ? keys.clientId
+      : process.env.CLIENT_ID,
+  clientSecret:
+    process.env.NODE_ENV === 'development'
+      ? keys.clientSecret
+      : process.env.CLIENT_SECRET,
+  username:
+    process.env.NODE_ENV === 'development'
+      ? keys.username
+      : process.env.USERNAME,
+  password:
+    process.env.NODE_ENV === 'development'
+      ? keys.password
+      : process.env.PASSWORD,
+  userAgent:
+    process.env.NODE_ENV === 'development'
+      ? keys.userAgent
+      : process.env.USER_AGENT,
+});
 
 const Fact = () => {
   const [post, setPost] = useState('');
