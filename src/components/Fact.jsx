@@ -9,23 +9,23 @@ const r = new snoowrap({
   clientId:
     process.env.NODE_ENV === 'development'
       ? keys.clientId
-      : process.env.CLIENT_ID,
+      : process.env.REACT_APP_CLIENT_ID,
   clientSecret:
     process.env.NODE_ENV === 'development'
       ? keys.clientSecret
-      : process.env.CLIENT_SECRET,
+      : process.env.REACT_APP_CLIENT_SECRET,
   username:
     process.env.NODE_ENV === 'development'
       ? keys.username
-      : process.env.USERNAME,
+      : process.env.REACT_APP_USERNAME,
   password:
     process.env.NODE_ENV === 'development'
       ? keys.password
-      : process.env.PASSWORD,
+      : process.env.REACT_APP_PASSWORD,
   userAgent:
     process.env.NODE_ENV === 'development'
       ? keys.userAgent
-      : process.env.USER_AGENT,
+      : process.env.REACT_APP_USER_AGENT,
 });
 
 const Fact = () => {
